@@ -42,6 +42,11 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
+        with:
+          # Creates the Pages site with build_type: workflow automatically if
+          # it doesn't exist yet, so this workflow doesn't depend on the
+          # Settings → Pages UI toggle succeeding first.
+          enablement: true
 
       - name: Build Jekyll site
         env:
