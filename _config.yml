@@ -1,8 +1,9 @@
 title: Joshua Kakinuki
-tagline: Software Engineer
+tagline: Full-Stack Software Engineer
 description: >-
-  Personal portfolio and landing page of Joshua Kakinuki, a software engineer
-  focused on building clean, reliable web applications.
+  Personal portfolio and landing page of Joshua Kakinuki, a full-stack
+  software engineer focused on building clean, reliable web applications
+  end to end — from the browser to the database.
 url: "https://joshkaki00.github.io"
 # This is a user/org GitHub Pages site (repo ends in .github.io), so it's
 # always served from the domain root. Set explicitly — without a GitHub API
@@ -26,7 +27,7 @@ hero:
   headline_before: "I love turning"
   headline_highlight: "hard problems"
   headline_after: "into clean, working software"
-  role: "Software Engineer"
+  role: "Full-Stack Software Engineer"
   credentials: "" # e.g. "B.S. Computer Science" — leave blank to hide
   # Path under /assets/img/, e.g. "/assets/img/headshot.jpg" — leave blank to
   # fall back to an initials avatar generated from `author`.
