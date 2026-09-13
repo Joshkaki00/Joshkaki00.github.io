@@ -11,3 +11,24 @@
 <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 
 {% seo %}
+
+<!-- Structured data so search engines / AI tools can parse who this is without guessing -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": {{ site.author | jsonify }},
+  "jobTitle": {{ site.hero.role | jsonify }},
+  "url": {{ site.url | jsonify }},
+  "description": {{ site.description | jsonify }}
+  {%- assign profiles = "" | split: "," -%}
+  {%- if site.github_username != "" -%}
+    {%- assign github_url = "https://github.com/" | append: site.github_username -%}
+    {%- assign profiles = profiles | push: github_url -%}
+  {%- endif -%}
+  {%- if site.linkedin_url != "" -%}{%- assign profiles = profiles | push: site.linkedin_url -%}{%- endif -%}
+  {%- if profiles.size > 0 -%}
+  ,"sameAs": {{ profiles | jsonify }}
+  {%- endif -%}
+}
+</script>

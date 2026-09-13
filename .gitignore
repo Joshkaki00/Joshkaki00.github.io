@@ -80,6 +80,9 @@ build/Release
 node_modules/
 jspm_packages/
 
+# Compiled Tailwind output — rebuilt by CI on every deploy (see package.json)
+/assets/css/style.css
+
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/
 

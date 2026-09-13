@@ -33,27 +33,41 @@ hero:
     text: "Get in touch"
     url: "#contact"
 
+# Grouped by category (scanning for a specific skill is faster than a flat list)
 skills:
-  - "JavaScript / TypeScript"
-  - "Python"
-  - "React"
-  - "Node.js"
-  - "Git & GitHub"
-  - "SQL"
+  - category: "Languages"
+    items: ["JavaScript / TypeScript", "Python", "SQL"]
+  - category: "Frameworks & Libraries"
+    items: ["React", "Node.js"]
+  - category: "Tools & Practices"
+    items: ["Git & GitHub", "CI/CD", "REST APIs"]
 
+# 3-4 real, finished projects beat a dozen tutorial clones — replace these with
+# your strongest work. Each one should read as a mini case study: the problem,
+# the key technical decision, and a measurable outcome. Link both a live demo
+# and the repo so a reviewer can verify the work themselves.
 projects:
   - title: "Project One"
-    description: "A short description of a project, what problem it solves, and the impact it had."
-    tags: ["React", "Node.js"]
-    url: "#"
+    problem: "What problem this project solved, and for whom."
+    approach: "The key technical decision you made and why — the tradeoff, not just the tech list."
+    outcome: "A measurable result: performance, usage, scope, or what you learned."
+    stack: ["React", "Node.js"]
+    demo_url: ""
+    repo_url: ""
   - title: "Project Two"
-    description: "A short description of a project, what problem it solves, and the impact it had."
-    tags: ["Python", "APIs"]
-    url: "#"
+    problem: "What problem this project solved, and for whom."
+    approach: "The key technical decision you made and why — the tradeoff, not just the tech list."
+    outcome: "A measurable result: performance, usage, scope, or what you learned."
+    stack: ["Python", "APIs"]
+    demo_url: ""
+    repo_url: ""
   - title: "Project Three"
-    description: "A short description of a project, what problem it solves, and the impact it had."
-    tags: ["TypeScript", "Design"]
-    url: "#"
+    problem: "What problem this project solved, and for whom."
+    approach: "The key technical decision you made and why — the tradeoff, not just the tech list."
+    outcome: "A measurable result: performance, usage, scope, or what you learned."
+    stack: ["TypeScript", "Design"]
+    demo_url: ""
+    repo_url: ""
 
 # Build settings
 # The github-pages gem silently defaults to `jekyll-theme-primer` (and ships

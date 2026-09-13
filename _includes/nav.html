@@ -3,11 +3,15 @@
     <a href="{{ '/' | relative_url }}" class="text-sm font-semibold tracking-tight text-white">
       {{ site.author }}<span class="text-brand-400">.</span>
     </a>
+    <!-- axe-linter-disable-next-line list -->
     <ul class="hidden items-center gap-8 text-sm text-slate-300 sm:flex">
       <li><a href="#about" class="transition hover:text-white">About</a></li>
       <li><a href="#skills" class="transition hover:text-white">Skills</a></li>
       <li><a href="#projects" class="transition hover:text-white">Projects</a></li>
       <li><a href="#contact" class="transition hover:text-white">Contact</a></li>
+      {%- if site.resume_url != "" -%}
+      <li><a href="{{ site.resume_url }}" target="_blank" rel="noopener" class="transition hover:text-white">Resume</a></li>
+      {%- endif -%}
     </ul>
     <a
       href="#contact"
