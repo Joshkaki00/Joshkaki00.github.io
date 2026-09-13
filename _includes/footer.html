@@ -1,0 +1,16 @@
+<footer class="border-t border-white/5 py-10">
+  <div class="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 px-6 text-sm text-slate-500 sm:flex-row">
+    <p>&copy; {{ site.time | date: '%Y' }} {{ site.author }}. All rights reserved.</p>
+    <div class="flex items-center gap-5">
+      {% if site.github_username %}
+      <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener" class="transition hover:text-white">GitHub</a>
+      {% endif %}
+      {% if site.linkedin_url %}
+      <a href="{{ site.linkedin_url }}" target="_blank" rel="noopener" class="transition hover:text-white">LinkedIn</a>
+      {% endif %}
+      {% if site.email %}
+      <a href="mailto:{{ site.email }}" class="transition hover:text-white">Email</a>
+      {% endif %}
+    </div>
+  </div>
+</footer>
