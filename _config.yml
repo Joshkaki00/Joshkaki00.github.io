@@ -51,6 +51,11 @@ projects:
     url: "#"
 
 # Build settings
+# The github-pages gem silently defaults to `jekyll-theme-primer` (and ships
+# its stylesheet to assets/css/style.css) whenever no theme is set. Setting
+# this explicitly to null disables that fallback. See:
+# https://github.com/github/pages-gem/issues/613
+theme: null
 markdown: kramdown
 plugins:
   - jekyll-seo-tag
