@@ -18,17 +18,14 @@ title: Home
 
     <div class="text-center sm:text-left">
       <p class="text-sm font-medium uppercase tracking-widest text-brand-500">
-        {{ site.hero.eyebrow }}
+        {{ site.hero.eyebrow }} {{ site.hero.name }}
       </p>
-      <h1 class="mt-2 text-3xl font-extrabold tracking-tight text-ink-900 sm:text-5xl">
-        {{ site.hero.name }}
-      </h1>
-      <p class="mx-auto mt-4 max-w-xl text-xl font-medium leading-snug text-ink-700 sm:mx-0 sm:text-2xl">
+      <h1 class="mx-auto mt-3 max-w-2xl text-4xl font-extrabold leading-[1.1] tracking-tight text-ink-900 sm:mx-0 sm:text-5xl lg:text-6xl">
         {{ site.hero.headline_before }}
         <span class="text-brand-500">{{ site.hero.headline_highlight }}</span>
         {{ site.hero.headline_after }}
-      </p>
-      <p class="mt-4 text-sm font-semibold uppercase tracking-wide text-ink-500">
+      </h1>
+      <p class="mt-4 text-lg font-medium text-ink-500">
         {{ site.hero.role }}{% if site.hero.credentials != "" %}, {{ site.hero.credentials }}{% endif %}
       </p>
 
@@ -46,7 +43,7 @@ title: Home
 
 <!-- About -->
 <section id="about" class="border-t border-ink-900/10 px-6 py-16">
-  <div class="mx-auto max-w-3xl">
+  <div class="mx-auto max-w-2xl">
     <h2 class="text-sm font-semibold uppercase tracking-widest text-brand-500">About</h2>
     <p class="mt-4 text-lg leading-relaxed text-ink-700">
       I'm a software engineer who enjoys turning ideas into well-crafted products.
@@ -80,7 +77,7 @@ title: Home
     </div>
 
     <div class="flex flex-col justify-center border-l border-ink-900/10 pl-8">
-      <p class="text-3xl font-serif text-brand-400">&ldquo;</p>
+      <p class="-mb-2 text-5xl font-serif leading-none text-brand-400" aria-hidden="true">&ldquo;</p>
       <blockquote class="text-xl font-medium italic leading-snug text-ink-800">
         {{ site.quote.text }}
       </blockquote>
