@@ -171,8 +171,64 @@ title: Home
 <section id="projects" class="scroll-mt-24 border-t border-ink-900/10 bg-cream-100 px-6 py-20">
   <div class="mx-auto max-w-5xl">
     <h2 class="text-sm font-semibold uppercase tracking-widest text-brand-700">Projects</h2>
-    <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {% for project in site.projects %}
+
+    <!-- One flagship project gets full-width, in-depth treatment (problem, approach,
+         a specific technical challenge, and outcome) — depth on a single project reads
+         stronger to hiring engineers than several equal-weight, shallow cards. Mark it
+         with `featured: true` in _config.yml. -->
+    {% assign featured_projects = site.projects | where: "featured", true %}
+    {% if featured_projects.size > 0 %}
+    {% assign featured = featured_projects.first %}
+    <div class="mt-8 rounded-2xl border border-brand-400/40 bg-cream-50 p-8 shadow-sm shadow-ink-900/5 sm:p-10">
+      <p class="text-xs font-semibold uppercase tracking-widest text-brand-700">Flagship project</p>
+      <h3 class="mt-2 text-2xl font-bold text-ink-900">{{ featured.title }}</h3>
+
+      <!-- axe-linter-disable-next-line definition-list -->
+      <dl class="mt-6 grid gap-6 text-sm leading-relaxed text-ink-700 sm:grid-cols-2">
+        <div>
+          <dt class="text-xs font-semibold uppercase tracking-wide text-ink-500">Problem</dt>
+          <dd class="mt-1">{{ featured.problem }}</dd>
+        </div>
+        <div>
+          <dt class="text-xs font-semibold uppercase tracking-wide text-ink-500">Approach</dt>
+          <dd class="mt-1">{{ featured.approach }}</dd>
+        </div>
+        {%- if featured.challenge != "" -%}
+        <div>
+          <dt class="text-xs font-semibold uppercase tracking-wide text-ink-500">Technical challenge</dt>
+          <dd class="mt-1">{{ featured.challenge }}</dd>
+        </div>
+        {%- endif -%}
+        <div>
+          <dt class="text-xs font-semibold uppercase tracking-wide text-ink-500">Outcome</dt>
+          <dd class="mt-1">{{ featured.outcome }}</dd>
+        </div>
+      </dl>
+
+      <div class="mt-6 flex flex-wrap gap-2">
+        {% for tech in featured.stack %}
+        <span class="rounded-full bg-brand-100 px-3 py-1 text-xs font-medium text-brand-700">{{ tech }}</span>
+        {% endfor %}
+      </div>
+
+      <div class="-mx-1 mt-6 flex items-center gap-4 text-sm font-semibold">
+        {% if featured.demo_url != "" %}
+        <a href="{{ featured.demo_url }}" target="_blank" rel="noopener" class="inline-flex items-center px-1 py-2 text-brand-700 transition hover:text-brand-800">Live demo &rarr;</a>
+        {% endif %}
+        {% if featured.repo_url != "" %}
+        <a href="{{ featured.repo_url }}" target="_blank" rel="noopener" class="inline-flex items-center px-1 py-2 text-ink-700 transition hover:text-ink-900">Code &rarr;</a>
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
+
+    <!-- Supporting projects: lighter-weight cards that show range without competing
+         with the flagship for attention. -->
+    {% assign other_projects = site.projects | where_exp: "p", "p.featured != true" %}
+    {% if other_projects.size > 0 %}
+    <p class="mt-10 text-xs font-semibold uppercase tracking-widest text-ink-500">More projects</p>
+    <div class="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {% for project in other_projects %}
       <div class="flex flex-col rounded-2xl border border-ink-900/10 bg-cream-50 p-6 transition hover:border-brand-400/60 hover:shadow-md">
         <h3 class="text-lg font-semibold text-ink-900">
           {{ project.title }}
@@ -212,6 +268,7 @@ title: Home
       </div>
       {% endfor %}
     </div>
+    {% endif %}
   </div>
 </section>
 

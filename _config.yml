@@ -94,10 +94,18 @@ skills:
 # your strongest work. Each one should read as a mini case study: the problem,
 # the key technical decision, and a measurable outcome. Link both a live demo
 # and the repo so a reviewer can verify the work themselves.
+#
+# Mark exactly ONE project `featured: true` — it gets a full-width, in-depth
+# "flagship" treatment above the rest. Per 2026 hiring research, one project
+# that proves end-to-end ownership (frontend + backend + database + a real
+# technical challenge you solved) reads far stronger than several shallow,
+# equal-weight projects. Give it an optional `challenge` field too.
 projects:
   - title: "Project One"
+    featured: true
     problem: "What problem this project solved, and for whom."
     approach: "The key technical decision you made and why — the tradeoff, not just the tech list."
+    challenge: "A specific technical hurdle you hit across layers (frontend/backend/data) and how you solved it — this is the signal recruiters look for most."
     outcome: "A measurable result: performance, usage, scope, or what you learned."
     stack: ["React", "Node.js"]
     demo_url: ""
