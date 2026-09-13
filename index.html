@@ -28,17 +28,17 @@ title: Home
 
     <div class="flex items-center justify-center gap-4">
       {% if site.github_username != "" %}
-      <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener" aria-label="GitHub" class="text-brand-500 transition hover:text-brand-600">GitHub</a>
+      <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener" aria-label="GitHub" class="inline-flex items-center px-1 py-2 text-brand-500 transition hover:text-brand-600">GitHub</a>
       {% endif %}
       {% if site.linkedin_url != "" %}
-      <a href="{{ site.linkedin_url }}" target="_blank" rel="noopener" aria-label="LinkedIn" class="text-brand-500 transition hover:text-brand-600">LinkedIn</a>
+      <a href="{{ site.linkedin_url }}" target="_blank" rel="noopener" aria-label="LinkedIn" class="inline-flex items-center px-1 py-2 text-brand-500 transition hover:text-brand-600">LinkedIn</a>
       {% endif %}
     </div>
   </div>
 </section>
 
 <!-- About -->
-<section id="about" class="border-t border-ink-900/10 px-6 py-16">
+<section id="about" class="scroll-mt-24 border-t border-ink-900/10 px-6 py-16">
   <div class="mx-auto max-w-2xl">
     <h2 class="text-sm font-semibold uppercase tracking-widest text-brand-500">About</h2>
     <p class="mt-4 text-lg leading-relaxed text-ink-700">
@@ -118,7 +118,7 @@ title: Home
 </section>
 
 <!-- Skills -->
-<section id="skills" class="border-t border-ink-900/10 bg-cream-100 px-6 py-20">
+<section id="skills" class="scroll-mt-24 border-t border-ink-900/10 bg-cream-100 px-6 py-20">
   <div class="mx-auto max-w-3xl">
     <h2 class="text-sm font-semibold uppercase tracking-widest text-brand-500">Skills</h2>
     <div class="mt-6 space-y-6">
@@ -140,7 +140,7 @@ title: Home
 </section>
 
 <!-- Competencies detail -->
-<section id="competencies" class="border-t border-ink-900/10 px-6 py-20">
+<section id="competencies" class="scroll-mt-24 border-t border-ink-900/10 px-6 py-20">
   <div class="mx-auto grid max-w-5xl gap-10 sm:grid-cols-2 sm:items-center">
     <div>
       <h2 class="text-xl font-bold text-ink-900 sm:text-2xl">{{ site.competencies.intro }}</h2>
@@ -168,7 +168,7 @@ title: Home
 </section>
 
 <!-- Projects -->
-<section id="projects" class="border-t border-ink-900/10 bg-cream-100 px-6 py-20">
+<section id="projects" class="scroll-mt-24 border-t border-ink-900/10 bg-cream-100 px-6 py-20">
   <div class="mx-auto max-w-5xl">
     <h2 class="text-sm font-semibold uppercase tracking-widest text-brand-500">Projects</h2>
     <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -201,12 +201,12 @@ title: Home
           {% endfor %}
         </div>
 
-        <div class="mt-5 flex items-center gap-4 text-sm font-semibold">
+        <div class="-mx-1 mt-5 flex items-center gap-4 text-sm font-semibold">
           {% if project.demo_url != "" %}
-          <a href="{{ project.demo_url }}" target="_blank" rel="noopener" class="text-brand-600 transition hover:text-brand-700">Live demo &rarr;</a>
+          <a href="{{ project.demo_url }}" target="_blank" rel="noopener" class="inline-flex items-center px-1 py-2 text-brand-600 transition hover:text-brand-700">Live demo &rarr;</a>
           {% endif %}
           {% if project.repo_url != "" %}
-          <a href="{{ project.repo_url }}" target="_blank" rel="noopener" class="text-ink-700 transition hover:text-ink-900">Code &rarr;</a>
+          <a href="{{ project.repo_url }}" target="_blank" rel="noopener" class="inline-flex items-center px-1 py-2 text-ink-700 transition hover:text-ink-900">Code &rarr;</a>
           {% endif %}
         </div>
       </div>
@@ -226,7 +226,7 @@ title: Home
 </section>
 
 <!-- Contact -->
-<section id="contact" class="border-t border-ink-900/10 px-6 py-24">
+<section id="contact" class="scroll-mt-24 border-t border-ink-900/10 px-6 py-24">
   <div class="mx-auto max-w-xl text-center">
     <h2 class="text-sm font-semibold uppercase tracking-widest text-brand-500">Contact</h2>
     <p class="mt-4 text-lg text-ink-700">
