@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/Joshkaki00/Joshkaki00.github.io.git"
   },
-  "author": "Joshua Kaki",
+  "author": "Joshua Kakinuki",
   "license": "ISC",
   "devDependencies": {
     "@tailwindcss/cli": "^4.3.3",

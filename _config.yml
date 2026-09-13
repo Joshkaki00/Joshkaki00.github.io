@@ -1,7 +1,7 @@
-title: Joshua Kaki
+title: Joshua Kakinuki
 tagline: Software Engineer
 description: >-
-  Personal portfolio and landing page of Joshua Kaki, a software engineer
+  Personal portfolio and landing page of Joshua Kakinuki, a software engineer
   focused on building clean, reliable web applications.
 url: "https://joshkaki00.github.io"
 # This is a user/org GitHub Pages site (repo ends in .github.io), so it's
@@ -9,7 +9,7 @@ url: "https://joshkaki00.github.io"
 # token, jekyll-github-metadata's repo detection can guess a bogus non-empty
 # baseurl (e.g. "/pages/<user>"), breaking every relative_url-based link.
 baseurl: ""
-author: Joshua Kaki
+author: Joshua Kakinuki
 
 # Social / contact links surfaced in the nav and footer
 github_username: Joshkaki00
@@ -20,7 +20,7 @@ resume_url: ""
 # Landing page content
 hero:
   eyebrow: "Hi, I'm"
-  name: "Joshua Kaki"
+  name: "Joshua Kakinuki"
   # Headline is split so one phrase can be highlighted in the accent color,
   # mirroring the "I love to push the Brand's boundaries..." reference layout.
   headline_before: "I love turning"
