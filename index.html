@@ -3,32 +3,18 @@ layout: default
 title: Home
 ---
 
-{% assign name_parts = site.author | split: " " %}
-{% assign initials = name_parts.first | slice: 0, 1 %}
-{% if name_parts.size > 1 %}
-  {% assign last_initial = name_parts.last | slice: 0, 1 %}
-  {% assign initials = initials | append: last_initial %}
-{% endif %}
-
 <!-- Hero -->
 <section class="relative overflow-hidden px-6 pt-40 pb-20">
   <div class="mx-auto flex max-w-5xl flex-col items-center gap-10 sm:flex-row sm:items-center">
+    {% if site.hero.photo != "" %}
     <div class="shrink-0">
-      {% if site.hero.photo != "" %}
       <img
         src="{{ site.hero.photo | relative_url }}"
         alt="{{ site.author }}"
         class="h-40 w-40 rounded-full object-cover shadow-lg shadow-ink-900/10 sm:h-48 sm:w-48"
       >
-      {% else %}
-      <div
-        class="flex h-40 w-40 items-center justify-center rounded-full bg-brand-200 text-4xl font-bold text-ink-900 shadow-lg shadow-ink-900/10 sm:h-48 sm:w-48"
-        aria-hidden="true"
-      >
-        {{ initials }}
-      </div>
-      {% endif %}
     </div>
+    {% endif %}
 
     <div class="text-center sm:text-left">
       <p class="text-sm font-medium uppercase tracking-widest text-brand-500">
