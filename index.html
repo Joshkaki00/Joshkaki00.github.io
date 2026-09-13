@@ -5,38 +5,34 @@ title: Home
 
 <!-- Hero -->
 <section class="relative overflow-hidden px-6 pt-40 pb-20">
-  <div class="mx-auto flex max-w-5xl flex-col items-center gap-10 sm:flex-row sm:items-center">
+  <div class="mx-auto flex max-w-3xl flex-col items-center gap-6 text-center">
     {% if site.hero.photo != "" %}
-    <div class="shrink-0">
-      <img
-        src="{{ site.hero.photo | relative_url }}"
-        alt="{{ site.author }}"
-        class="h-40 w-40 rounded-full object-cover shadow-lg shadow-ink-900/10 sm:h-48 sm:w-48"
-      >
-    </div>
+    <img
+      src="{{ site.hero.photo | relative_url }}"
+      alt="{{ site.author }}"
+      class="h-32 w-32 rounded-full object-cover shadow-lg shadow-ink-900/10"
+    >
     {% endif %}
 
-    <div class="min-w-0 flex-1 text-center sm:text-left">
-      <p class="text-sm font-medium uppercase tracking-widest text-brand-500">
-        {{ site.hero.eyebrow }} {{ site.hero.name }}
-      </p>
-      <h1 class="mx-auto mt-3 max-w-2xl text-4xl font-extrabold leading-[1.1] tracking-tight text-ink-900 sm:mx-0 sm:text-5xl lg:text-6xl">
-        {{ site.hero.headline_before }}
-        <span class="text-brand-500">{{ site.hero.headline_highlight }}</span>
-        {{ site.hero.headline_after }}
-      </h1>
-      <p class="mt-4 text-lg font-medium text-ink-500">
-        {{ site.hero.role }}{% if site.hero.credentials != "" %}, {{ site.hero.credentials }}{% endif %}
-      </p>
+    <p class="text-sm font-medium uppercase tracking-widest text-brand-500">
+      {{ site.hero.eyebrow }} {{ site.hero.name }}
+    </p>
+    <h1 class="text-3xl font-extrabold leading-[1.15] tracking-tight text-ink-900 sm:text-4xl">
+      {{ site.hero.headline_before }}
+      <span class="text-brand-500">{{ site.hero.headline_highlight }}</span>
+      {{ site.hero.headline_after }}
+    </h1>
+    <p class="text-lg font-medium text-ink-500">
+      {{ site.hero.role }}{% if site.hero.credentials != "" %}, {{ site.hero.credentials }}{% endif %}
+    </p>
 
-      <div class="mt-6 flex items-center justify-center gap-4 sm:justify-start">
-        {% if site.github_username != "" %}
-        <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener" aria-label="GitHub" class="text-brand-500 transition hover:text-brand-600">GitHub</a>
-        {% endif %}
-        {% if site.linkedin_url != "" %}
-        <a href="{{ site.linkedin_url }}" target="_blank" rel="noopener" aria-label="LinkedIn" class="text-brand-500 transition hover:text-brand-600">LinkedIn</a>
-        {% endif %}
-      </div>
+    <div class="flex items-center justify-center gap-4">
+      {% if site.github_username != "" %}
+      <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener" aria-label="GitHub" class="text-brand-500 transition hover:text-brand-600">GitHub</a>
+      {% endif %}
+      {% if site.linkedin_url != "" %}
+      <a href="{{ site.linkedin_url }}" target="_blank" rel="noopener" aria-label="LinkedIn" class="text-brand-500 transition hover:text-brand-600">LinkedIn</a>
+      {% endif %}
     </div>
   </div>
 </section>
