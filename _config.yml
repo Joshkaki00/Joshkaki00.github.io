@@ -21,22 +21,69 @@ resume_url: ""
 hero:
   eyebrow: "Hi, I'm"
   name: "Joshua Kaki"
+  # Headline is split so one phrase can be highlighted in the accent color,
+  # mirroring the "I love to push the Brand's boundaries..." reference layout.
+  headline_before: "I love turning"
+  headline_highlight: "hard problems"
+  headline_after: "into clean, working software"
   role: "Software Engineer"
-  summary: >-
-    I build clean, reliable web applications and enjoy working across
-    the stack — from crafting intuitive UIs to designing solid backend
-    systems.
-  primary_cta:
-    text: "View my work"
-    url: "#projects"
-  secondary_cta:
-    text: "Get in touch"
+  credentials: "" # e.g. "B.S. Computer Science" — leave blank to hide
+  # Path under /assets/img/, e.g. "/assets/img/headshot.jpg" — leave blank to
+  # fall back to an initials avatar generated from `author`.
+  photo: ""
+
+# Who you help and how — mirrors the "In which situations can I be helpful?"
+# section. Bullet text supports **bold** (rendered via markdownify).
+help_with:
+  intro: "Where I can help"
+  items:
+    - "You need to **ship a working feature quickly** without piling up tech debt."
+    - "Your app has **rough edges in the UI** that need a developer with an eye for UX."
+    - "You're stuck on a **bug or architecture decision** and want a second pair of eyes."
+    - "You want **clean, documented code** a future engineer (including future-you) can pick up easily."
+  cta:
+    text: "Let's talk"
     url: "#contact"
+
+quote:
+  text: "Any fool can write code that a computer can understand. Good programmers write code that humans can understand."
+  author: "Martin Fowler"
+
+career_highlights:
+  - "Years writing production software: fill in"
+  - "Notable project or role: fill in"
+  - "Certifications / degree: fill in"
+
+competencies_short:
+  - "Full-stack web development"
+  - "API design & integration"
+  - "Debugging & performance tuning"
+
+loves:
+  - "Clean, readable code"
+  - "Solving gnarly bugs"
+  - "Learning new tools"
+
+# Detailed competencies list, shown next to a second photo. Bold lead-ins are
+# supported via **term** (rendered with markdownify).
+competencies:
+  intro: "What I bring to a team"
+  items:
+    - "**Full-stack development** — comfortable across the browser, the API layer, and the database."
+    - "**Debugging under pressure** — methodical about isolating root causes instead of guessing."
+    - "**Clear communication** — writing docs and PR descriptions a teammate can actually follow."
+    - "**Continuous learning** — picking up new languages and frameworks as the problem demands it."
+  # Path under /assets/img/ — leave blank to hide this section's photo.
+  photo: ""
+
+final_cta:
+  text: "Ready to see what I've built?"
+  url: "#projects"
 
 # Grouped by category (scanning for a specific skill is faster than a flat list)
 skills:
   - category: "Languages"
-    items: ["JavaScript / TypeScript", "Python", "SQL"]
+    items: ["JavaScript / TypeScript", "Python", "C++", "SQL"]
   - category: "Frameworks & Libraries"
     items: ["React", "Node.js"]
   - category: "Tools & Practices"

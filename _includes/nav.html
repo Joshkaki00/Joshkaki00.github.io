@@ -1,21 +1,21 @@
-<header class="fixed inset-x-0 top-0 z-50 border-b border-white/5 bg-slate-950/80 backdrop-blur">
+<header class="fixed inset-x-0 top-0 z-50 border-b border-ink-900/5 bg-cream-50/90 backdrop-blur">
   <nav class="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-    <a href="{{ '/' | relative_url }}" class="text-sm font-semibold tracking-tight text-white">
-      {{ site.author }}<span class="text-brand-400">.</span>
+    <a href="{{ '/' | relative_url }}" class="text-sm font-semibold uppercase tracking-widest text-ink-900">
+      {{ site.author }}<span class="text-brand-500">.</span>
     </a>
     <!-- axe-linter-disable-next-line list -->
-    <ul class="hidden items-center gap-8 text-sm text-slate-300 sm:flex">
-      <li><a href="#about" class="transition hover:text-white">About</a></li>
-      <li><a href="#skills" class="transition hover:text-white">Skills</a></li>
-      <li><a href="#projects" class="transition hover:text-white">Projects</a></li>
-      <li><a href="#contact" class="transition hover:text-white">Contact</a></li>
+    <ul class="hidden items-center gap-8 text-xs font-medium uppercase tracking-widest text-ink-500 sm:flex">
+      <li><a href="#about" class="transition hover:text-ink-900">About</a></li>
+      <li><a href="#skills" class="transition hover:text-ink-900">Skills</a></li>
+      <li><a href="#projects" class="transition hover:text-ink-900">Cases</a></li>
+      <li><a href="#contact" class="transition hover:text-ink-900">Contact</a></li>
       {%- if site.resume_url != "" -%}
-      <li><a href="{{ site.resume_url }}" target="_blank" rel="noopener" class="transition hover:text-white">Resume</a></li>
+      <li><a href="{{ site.resume_url }}" target="_blank" rel="noopener" class="transition hover:text-ink-900">Resume</a></li>
       {%- endif -%}
     </ul>
     <a
       href="#contact"
-      class="rounded-full bg-brand-600 px-4 py-2 text-sm font-medium text-white shadow-sm shadow-brand-600/30 transition hover:bg-brand-500"
+      class="rounded-full bg-brand-400 px-4 py-2 text-sm font-semibold text-ink-900 shadow-sm shadow-brand-400/40 transition hover:bg-brand-300"
     >
       Say hello
     </a>

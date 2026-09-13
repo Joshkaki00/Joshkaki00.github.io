@@ -3,56 +3,66 @@ layout: default
 title: Home
 ---
 
+{% assign name_parts = site.author | split: " " %}
+{% assign initials = name_parts.first | slice: 0, 1 %}
+{% if name_parts.size > 1 %}
+  {% assign last_initial = name_parts.last | slice: 0, 1 %}
+  {% assign initials = initials | append: last_initial %}
+{% endif %}
+
 <!-- Hero -->
-<section class="relative overflow-hidden px-6 pt-40 pb-24">
-  <div class="pointer-events-none absolute inset-0 -z-10">
-    <div class="absolute left-1/2 top-0 h-96 w-96 -translate-x-1/2 rounded-full bg-brand-600/20 blur-3xl"></div>
-  </div>
-
-  <div class="mx-auto max-w-3xl text-center">
-    <p class="text-sm font-medium uppercase tracking-widest text-brand-400">
-      {{ site.hero.eyebrow }}
-    </p>
-    <h1 class="mt-4 text-4xl font-extrabold tracking-tight text-white sm:text-6xl">
-      {{ site.hero.name }}
-    </h1>
-    <p class="mt-3 text-xl font-medium text-slate-300 sm:text-2xl">
-      {{ site.hero.role }}
-    </p>
-    <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-slate-400">
-      {{ site.hero.summary }}
-    </p>
-
-    <div class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-      <a
-        href="{{ site.hero.primary_cta.url }}"
-        class="rounded-full bg-brand-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-600/30 transition hover:bg-brand-500"
+<section class="relative overflow-hidden px-6 pt-40 pb-20">
+  <div class="mx-auto flex max-w-5xl flex-col items-center gap-10 sm:flex-row sm:items-center">
+    <div class="shrink-0">
+      {% if site.hero.photo != "" %}
+      <img
+        src="{{ site.hero.photo | relative_url }}"
+        alt="{{ site.author }}"
+        class="h-40 w-40 rounded-full object-cover shadow-lg shadow-ink-900/10 sm:h-48 sm:w-48"
       >
-        {{ site.hero.primary_cta.text }}
-      </a>
-      <a
-        href="{{ site.hero.secondary_cta.url }}"
-        class="rounded-full border border-white/10 px-6 py-3 text-sm font-semibold text-slate-200 transition hover:border-white/30 hover:text-white"
+      {% else %}
+      <div
+        class="flex h-40 w-40 items-center justify-center rounded-full bg-brand-200 text-4xl font-bold text-ink-900 shadow-lg shadow-ink-900/10 sm:h-48 sm:w-48"
+        aria-hidden="true"
       >
-        {{ site.hero.secondary_cta.text }}
-      </a>
+        {{ initials }}
+      </div>
+      {% endif %}
     </div>
 
-    {% if site.resume_url != "" %}
-    <p class="mt-6">
-      <a href="{{ site.resume_url }}" target="_blank" rel="noopener" class="text-sm font-semibold text-slate-400 underline underline-offset-4 transition hover:text-white">
-        Download resume
-      </a>
-    </p>
-    {% endif %}
+    <div class="text-center sm:text-left">
+      <p class="text-sm font-medium uppercase tracking-widest text-brand-500">
+        {{ site.hero.eyebrow }}
+      </p>
+      <h1 class="mt-2 text-3xl font-extrabold tracking-tight text-ink-900 sm:text-5xl">
+        {{ site.hero.name }}
+      </h1>
+      <p class="mx-auto mt-4 max-w-xl text-xl font-medium leading-snug text-ink-700 sm:mx-0 sm:text-2xl">
+        {{ site.hero.headline_before }}
+        <span class="text-brand-500">{{ site.hero.headline_highlight }}</span>
+        {{ site.hero.headline_after }}
+      </p>
+      <p class="mt-4 text-sm font-semibold uppercase tracking-wide text-ink-500">
+        {{ site.hero.role }}{% if site.hero.credentials != "" %}, {{ site.hero.credentials }}{% endif %}
+      </p>
+
+      <div class="mt-6 flex items-center justify-center gap-4 sm:justify-start">
+        {% if site.github_username != "" %}
+        <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener" aria-label="GitHub" class="text-brand-500 transition hover:text-brand-600">GitHub</a>
+        {% endif %}
+        {% if site.linkedin_url != "" %}
+        <a href="{{ site.linkedin_url }}" target="_blank" rel="noopener" aria-label="LinkedIn" class="text-brand-500 transition hover:text-brand-600">LinkedIn</a>
+        {% endif %}
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- About -->
-<section id="about" class="border-t border-white/5 px-6 py-20">
+<section id="about" class="border-t border-ink-900/10 px-6 py-16">
   <div class="mx-auto max-w-3xl">
-    <h2 class="text-sm font-semibold uppercase tracking-widest text-brand-400">About</h2>
-    <p class="mt-4 text-lg leading-relaxed text-slate-300">
+    <h2 class="text-sm font-semibold uppercase tracking-widest text-brand-500">About</h2>
+    <p class="mt-4 text-lg leading-relaxed text-ink-700">
       I'm a software engineer who enjoys turning ideas into well-crafted products.
       I care about clean code, thoughtful UX, and shipping things that actually
       help people. Outside of work I'm always tinkering with side projects and
@@ -61,18 +71,85 @@ title: Home
   </div>
 </section>
 
+<!-- Where I can help + quote -->
+<section class="border-t border-ink-900/10 bg-cream-100 px-6 py-20">
+  <div class="mx-auto grid max-w-5xl gap-12 sm:grid-cols-2">
+    <div>
+      <h2 class="text-xl font-bold text-ink-900 sm:text-2xl">{{ site.help_with.intro }}</h2>
+      <!-- axe-linter-disable-next-line list -->
+      <ul class="mt-6 space-y-3 text-ink-700">
+        {%- for item in site.help_with.items -%}
+        <li class="flex gap-3">
+          <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-400"></span>
+          <span>{{ item | markdownify | remove: "<p>" | remove: "</p>" }}</span>
+        </li>
+        {%- endfor -%}
+      </ul>
+      <a
+        href="{{ site.help_with.cta.url }}"
+        class="mt-8 inline-block rounded-full bg-brand-400 px-6 py-3 text-sm font-semibold text-ink-900 shadow-sm shadow-brand-400/40 transition hover:bg-brand-300"
+      >
+        {{ site.help_with.cta.text }}
+      </a>
+    </div>
+
+    <div class="flex flex-col justify-center border-l border-ink-900/10 pl-8">
+      <p class="text-3xl font-serif text-brand-400">&ldquo;</p>
+      <blockquote class="text-xl font-medium italic leading-snug text-ink-800">
+        {{ site.quote.text }}
+      </blockquote>
+      <p class="mt-4 text-sm font-semibold uppercase tracking-wide text-ink-500">
+        &mdash; {{ site.quote.author }}
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Highlights -->
+<section class="border-t border-ink-900/10 px-6 py-20">
+  <div class="mx-auto grid max-w-5xl gap-12 sm:grid-cols-3">
+    <div>
+      <h3 class="text-sm font-semibold uppercase tracking-widest text-brand-500">Career highlights</h3>
+      <!-- axe-linter-disable-next-line list -->
+      <ul class="mt-4 space-y-2 text-sm leading-relaxed text-ink-700">
+        {%- for item in site.career_highlights -%}
+        <li>{{ item }}</li>
+        {%- endfor -%}
+      </ul>
+    </div>
+    <div>
+      <h3 class="text-sm font-semibold uppercase tracking-widest text-brand-500">Competencies</h3>
+      <!-- axe-linter-disable-next-line list -->
+      <ul class="mt-4 space-y-2 text-sm leading-relaxed text-ink-700">
+        {%- for item in site.competencies_short -%}
+        <li>{{ item }}</li>
+        {%- endfor -%}
+      </ul>
+    </div>
+    <div>
+      <h3 class="text-sm font-semibold uppercase tracking-widest text-brand-500">I'm in love with</h3>
+      <!-- axe-linter-disable-next-line list -->
+      <ul class="mt-4 space-y-2 text-sm leading-relaxed text-ink-700">
+        {%- for item in site.loves -%}
+        <li>{{ item }}</li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </div>
+</section>
+
 <!-- Skills -->
-<section id="skills" class="border-t border-white/5 px-6 py-20">
+<section id="skills" class="border-t border-ink-900/10 bg-cream-100 px-6 py-20">
   <div class="mx-auto max-w-3xl">
-    <h2 class="text-sm font-semibold uppercase tracking-widest text-brand-400">Skills</h2>
+    <h2 class="text-sm font-semibold uppercase tracking-widest text-brand-500">Skills</h2>
     <div class="mt-6 space-y-6">
       {% for group in site.skills %}
       <div>
-        <h3 class="text-xs font-semibold uppercase tracking-wide text-slate-500">{{ group.category }}</h3>
+        <h3 class="text-xs font-semibold uppercase tracking-wide text-ink-500">{{ group.category }}</h3>
         <!-- axe-linter-disable-next-line list -->
         <ul class="mt-3 flex flex-wrap gap-3">
           {%- for skill in group.items -%}
-          <li class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-200">
+          <li class="rounded-full border border-ink-900/10 bg-cream-50 px-4 py-2 text-sm text-ink-800">
             {{ skill }}
           </li>
           {%- endfor -%}
@@ -83,35 +160,63 @@ title: Home
   </div>
 </section>
 
+<!-- Competencies detail -->
+<section id="competencies" class="border-t border-ink-900/10 px-6 py-20">
+  <div class="mx-auto grid max-w-5xl gap-10 sm:grid-cols-2 sm:items-center">
+    <div>
+      <h2 class="text-xl font-bold text-ink-900 sm:text-2xl">{{ site.competencies.intro }}</h2>
+      <!-- axe-linter-disable-next-line list -->
+      <ul class="mt-6 space-y-3 text-ink-700">
+        {%- for item in site.competencies.items -%}
+        <li class="flex gap-3">
+          <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-400"></span>
+          <span>{{ item | markdownify | remove: "<p>" | remove: "</p>" }}</span>
+        </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+
+    {% if site.competencies.photo != "" %}
+    <div class="order-first sm:order-last">
+      <img
+        src="{{ site.competencies.photo | relative_url }}"
+        alt="{{ site.author }} at work"
+        class="aspect-4/5 w-full rounded-2xl object-cover shadow-lg shadow-ink-900/10"
+      >
+    </div>
+    {% endif %}
+  </div>
+</section>
+
 <!-- Projects -->
-<section id="projects" class="border-t border-white/5 px-6 py-20">
+<section id="projects" class="border-t border-ink-900/10 bg-cream-100 px-6 py-20">
   <div class="mx-auto max-w-5xl">
-    <h2 class="text-sm font-semibold uppercase tracking-widest text-brand-400">Projects</h2>
+    <h2 class="text-sm font-semibold uppercase tracking-widest text-brand-500">Projects</h2>
     <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {% for project in site.projects %}
-      <div class="flex flex-col rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:border-brand-500/50 hover:bg-white/[0.07]">
-        <h3 class="text-lg font-semibold text-white">
+      <div class="flex flex-col rounded-2xl border border-ink-900/10 bg-cream-50 p-6 transition hover:border-brand-400/60 hover:shadow-md">
+        <h3 class="text-lg font-semibold text-ink-900">
           {{ project.title }}
         </h3>
 
-        <dl class="mt-3 flex-1 space-y-3 text-sm leading-relaxed text-slate-400">
+        <dl class="mt-3 flex-1 space-y-3 text-sm leading-relaxed text-ink-700">
           <div>
-            <dt class="text-xs font-semibold uppercase tracking-wide text-slate-500">Problem</dt>
+            <dt class="text-xs font-semibold uppercase tracking-wide text-ink-500">Problem</dt>
             <dd class="mt-1">{{ project.problem }}</dd>
           </div>
           <div>
-            <dt class="text-xs font-semibold uppercase tracking-wide text-slate-500">Approach</dt>
+            <dt class="text-xs font-semibold uppercase tracking-wide text-ink-500">Approach</dt>
             <dd class="mt-1">{{ project.approach }}</dd>
           </div>
           <div>
-            <dt class="text-xs font-semibold uppercase tracking-wide text-slate-500">Outcome</dt>
+            <dt class="text-xs font-semibold uppercase tracking-wide text-ink-500">Outcome</dt>
             <dd class="mt-1">{{ project.outcome }}</dd>
           </div>
         </dl>
 
         <div class="mt-4 flex flex-wrap gap-2">
           {% for tech in project.stack %}
-          <span class="rounded-full bg-brand-600/10 px-3 py-1 text-xs font-medium text-brand-300">
+          <span class="rounded-full bg-brand-100 px-3 py-1 text-xs font-medium text-brand-700">
             {{ tech }}
           </span>
           {% endfor %}
@@ -119,10 +224,10 @@ title: Home
 
         <div class="mt-5 flex items-center gap-4 text-sm font-semibold">
           {% if project.demo_url != "" %}
-          <a href="{{ project.demo_url }}" target="_blank" rel="noopener" class="text-brand-300 transition hover:text-brand-200">Live demo &rarr;</a>
+          <a href="{{ project.demo_url }}" target="_blank" rel="noopener" class="text-brand-600 transition hover:text-brand-700">Live demo &rarr;</a>
           {% endif %}
           {% if project.repo_url != "" %}
-          <a href="{{ project.repo_url }}" target="_blank" rel="noopener" class="text-slate-300 transition hover:text-white">Code &rarr;</a>
+          <a href="{{ project.repo_url }}" target="_blank" rel="noopener" class="text-ink-700 transition hover:text-ink-900">Code &rarr;</a>
           {% endif %}
         </div>
       </div>
@@ -131,18 +236,28 @@ title: Home
   </div>
 </section>
 
+<!-- Final CTA -->
+<section class="border-t border-ink-900/10 px-6 py-16 text-center">
+  <a
+    href="{{ site.final_cta.url }}"
+    class="inline-block rounded-full bg-brand-400 px-8 py-4 text-sm font-semibold uppercase tracking-wide text-ink-900 shadow-sm shadow-brand-400/40 transition hover:bg-brand-300"
+  >
+    {{ site.final_cta.text }}
+  </a>
+</section>
+
 <!-- Contact -->
-<section id="contact" class="border-t border-white/5 px-6 py-24">
+<section id="contact" class="border-t border-ink-900/10 px-6 py-24">
   <div class="mx-auto max-w-xl text-center">
-    <h2 class="text-sm font-semibold uppercase tracking-widest text-brand-400">Contact</h2>
-    <p class="mt-4 text-lg text-slate-300">
+    <h2 class="text-sm font-semibold uppercase tracking-widest text-brand-500">Contact</h2>
+    <p class="mt-4 text-lg text-ink-700">
       Have a project in mind or just want to say hi? My inbox is always open.
     </p>
     <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
       {% if site.email != "" %}
       <a
         href="mailto:{{ site.email }}"
-        class="rounded-full bg-brand-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-600/30 transition hover:bg-brand-500"
+        class="rounded-full bg-brand-400 px-6 py-3 text-sm font-semibold text-ink-900 shadow-sm shadow-brand-400/40 transition hover:bg-brand-300"
       >
         Email me
       </a>
@@ -152,7 +267,7 @@ title: Home
         href="https://github.com/{{ site.github_username }}"
         target="_blank"
         rel="noopener"
-        class="rounded-full border border-white/10 px-6 py-3 text-sm font-semibold text-slate-200 transition hover:border-white/30 hover:text-white"
+        class="rounded-full border border-ink-900/15 px-6 py-3 text-sm font-semibold text-ink-800 transition hover:border-ink-900/30 hover:text-ink-900"
       >
         GitHub
       </a>
@@ -162,9 +277,19 @@ title: Home
         href="{{ site.linkedin_url }}"
         target="_blank"
         rel="noopener"
-        class="rounded-full border border-white/10 px-6 py-3 text-sm font-semibold text-slate-200 transition hover:border-white/30 hover:text-white"
+        class="rounded-full border border-ink-900/15 px-6 py-3 text-sm font-semibold text-ink-800 transition hover:border-ink-900/30 hover:text-ink-900"
       >
         LinkedIn
+      </a>
+      {% endif %}
+      {% if site.resume_url != "" %}
+      <a
+        href="{{ site.resume_url }}"
+        target="_blank"
+        rel="noopener"
+        class="rounded-full border border-ink-900/15 px-6 py-3 text-sm font-semibold text-ink-800 transition hover:border-ink-900/30 hover:text-ink-900"
+      >
+        Resume
       </a>
       {% endif %}
     </div>
