@@ -69,3 +69,8 @@ exclude:
   - package-lock.json
   - node_modules
   - assets/css/input.css
+  # ruby/setup-ruby's bundler-cache installs gems into ./vendor/bundle inside
+  # the repo on CI; without this, Jekyll scans the jekyll gem's own bundled
+  # sample post template and fails on its unrendered ERB date placeholder.
+  - vendor
+  - .bundle
