@@ -4,6 +4,11 @@ description: >-
   Personal portfolio and landing page of Joshua Kaki, a software engineer
   focused on building clean, reliable web applications.
 url: "https://joshkaki00.github.io"
+# This is a user/org GitHub Pages site (repo ends in .github.io), so it's
+# always served from the domain root. Set explicitly — without a GitHub API
+# token, jekyll-github-metadata's repo detection can guess a bogus non-empty
+# baseurl (e.g. "/pages/<user>"), breaking every relative_url-based link.
+baseurl: ""
 author: Joshua Kaki
 
 # Social / contact links surfaced in the nav and footer

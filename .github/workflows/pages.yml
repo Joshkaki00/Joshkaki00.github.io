@@ -53,6 +53,13 @@ jobs:
           JEKYLL_ENV: production
           LANG: en_US.UTF-8
           LC_ALL: en_US.UTF-8
+          # jekyll-github-metadata (pulled in by the github-pages gem) needs
+          # to know the repo name to compute `baseurl`; actions/checkout's
+          # shallow clone doesn't expose this the way it expects, so it must
+          # be supplied explicitly. The token also avoids GitHub API rate
+          # limiting/auth warnings from that plugin.
+          PAGES_REPO_NWO: ${{ github.repository }}
+          JEKYLL_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: bundle exec jekyll build --destination ./_site
 
       - name: Upload artifact
