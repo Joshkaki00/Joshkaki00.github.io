@@ -1,7 +1,7 @@
 <footer class="border-t border-ink-900/10 py-10">
   <div class="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 px-6 text-sm text-ink-500 sm:flex-row">
-    <p>&copy; {{ site.time | date: '%Y' }} {{ site.author }}. All rights reserved.</p>
-    <div class="flex items-center gap-5">
+    <p class="min-w-0">&copy; {{ site.time | date: '%Y' }} {{ site.author }}. All rights reserved.</p>
+    <div class="flex shrink-0 items-center gap-5">
       {% if site.github_username != "" %}
       <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener" class="transition hover:text-ink-900">GitHub</a>
       {% endif %}

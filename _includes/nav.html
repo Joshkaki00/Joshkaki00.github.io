@@ -1,10 +1,10 @@
 <header class="fixed inset-x-0 top-0 z-50 border-b border-ink-900/5 bg-cream-50/90 backdrop-blur">
-  <nav class="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-    <a href="{{ '/' | relative_url }}" class="text-sm font-semibold uppercase tracking-widest text-ink-900">
+  <nav class="mx-auto flex max-w-5xl items-center justify-between gap-4 px-6 py-4">
+    <a href="{{ '/' | relative_url }}" class="shrink-0 text-sm font-semibold uppercase tracking-widest text-ink-900">
       {{ site.author }}<span class="text-brand-500">.</span>
     </a>
     <!-- axe-linter-disable-next-line list -->
-    <ul class="hidden items-center gap-8 text-xs font-medium uppercase tracking-widest text-ink-500 sm:flex">
+    <ul class="hidden min-w-0 items-center justify-center gap-8 text-xs font-medium uppercase tracking-widest text-ink-500 sm:flex">
       <li><a href="#about" class="transition hover:text-ink-900">About</a></li>
       <li><a href="#skills" class="transition hover:text-ink-900">Skills</a></li>
       <li><a href="#projects" class="transition hover:text-ink-900">Cases</a></li>
@@ -15,7 +15,7 @@
     </ul>
     <a
       href="#contact"
-      class="rounded-full bg-brand-400 px-4 py-2 text-sm font-semibold text-ink-900 shadow-sm shadow-brand-400/40 transition hover:bg-brand-300"
+      class="shrink-0 rounded-full bg-brand-400 px-4 py-2 text-sm font-semibold text-ink-900 shadow-sm shadow-brand-400/40 transition hover:bg-brand-300"
     >
       Say hello
     </a>
