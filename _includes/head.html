@@ -3,9 +3,10 @@
 
 <link rel="icon" href="data:,">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!-- Self-hosted (no more fonts.googleapis.com/fonts.gstatic.com round trips).
+     Preloaded because it's used by the above-the-fold hero heading, so the
+     fetch starts immediately instead of waiting on style.css to be parsed. -->
+<link rel="preload" href="{{ '/assets/fonts/inter-var-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
 
 <!-- Compiled Tailwind CSS (built via `npm run build:css`, see package.json) -->
 <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
