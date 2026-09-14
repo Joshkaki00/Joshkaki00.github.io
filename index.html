@@ -181,7 +181,7 @@ title: Home
     {% assign featured = featured_projects.first %}
     <div class="mt-8 rounded-2xl border border-brand-400/40 bg-cream-50 p-8 shadow-sm shadow-ink-900/5 sm:p-10">
       <p class="text-xs font-semibold uppercase tracking-widest text-brand-700">Flagship project</p>
-      <h3 class="mt-2 text-2xl font-bold text-ink-900">{{ featured.title }}</h3>
+      <h3 class="mt-2 text-2xl font-bold text-balance text-ink-900">{{ featured.title }}</h3>
 
       <!-- axe-linter-disable-next-line definition-list -->
       <dl class="mt-6 grid gap-6 text-sm leading-relaxed text-ink-700 sm:grid-cols-2">
@@ -213,10 +213,10 @@ title: Home
 
       <div class="-mx-1 mt-6 flex items-center gap-4 text-sm font-semibold">
         {% if featured.demo_url != "" %}
-        <a href="{{ featured.demo_url }}" target="_blank" rel="noopener" class="inline-flex items-center px-1 py-2 text-brand-700 transition hover:text-brand-800">Live demo &rarr;</a>
+        <a href="{{ featured.demo_url }}" target="_blank" rel="noopener" class="inline-flex items-center rounded-sm px-1 py-2 text-brand-700 transition hover:text-brand-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:ring-offset-cream-50">Live demo &rarr;</a>
         {% endif %}
         {% if featured.repo_url != "" %}
-        <a href="{{ featured.repo_url }}" target="_blank" rel="noopener" class="inline-flex items-center px-1 py-2 text-ink-700 transition hover:text-ink-900">Code &rarr;</a>
+        <a href="{{ featured.repo_url }}" target="_blank" rel="noopener" class="inline-flex items-center rounded-sm px-1 py-2 text-ink-700 transition hover:text-ink-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:ring-offset-cream-50">Code &rarr;</a>
         {% endif %}
       </div>
     </div>
@@ -229,8 +229,8 @@ title: Home
     <p class="mt-10 text-xs font-semibold uppercase tracking-widest text-ink-500">More projects</p>
     <div class="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {% for project in other_projects %}
-      <div class="flex flex-col rounded-2xl border border-ink-900/10 bg-cream-50 p-6 transition hover:border-brand-400/60 hover:shadow-md">
-        <h3 class="text-lg font-semibold text-ink-900">
+      <div class="flex flex-col rounded-2xl border border-ink-900/10 bg-cream-50 p-6 transition-all duration-200 hover:-translate-y-1 hover:border-brand-400/60 hover:shadow-lg hover:shadow-ink-900/10">
+        <h3 class="text-lg font-semibold text-balance text-ink-900">
           {{ project.title }}
         </h3>
 
@@ -259,10 +259,10 @@ title: Home
 
         <div class="-mx-1 mt-5 flex items-center gap-4 text-sm font-semibold">
           {% if project.demo_url != "" %}
-          <a href="{{ project.demo_url }}" target="_blank" rel="noopener" class="inline-flex items-center px-1 py-2 text-brand-700 transition hover:text-brand-800">Live demo &rarr;</a>
+          <a href="{{ project.demo_url }}" target="_blank" rel="noopener" class="inline-flex items-center rounded-sm px-1 py-2 text-brand-700 transition hover:text-brand-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:ring-offset-cream-50">Live demo &rarr;</a>
           {% endif %}
           {% if project.repo_url != "" %}
-          <a href="{{ project.repo_url }}" target="_blank" rel="noopener" class="inline-flex items-center px-1 py-2 text-ink-700 transition hover:text-ink-900">Code &rarr;</a>
+          <a href="{{ project.repo_url }}" target="_blank" rel="noopener" class="inline-flex items-center rounded-sm px-1 py-2 text-ink-700 transition hover:text-ink-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:ring-offset-cream-50">Code &rarr;</a>
           {% endif %}
         </div>
       </div>
