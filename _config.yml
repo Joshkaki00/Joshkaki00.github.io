@@ -110,13 +110,13 @@ projects:
     stack: ["React", "Node.js"]
     demo_url: ""
     repo_url: ""
-  - title: "Project Two"
-    problem: "What problem this project solved, and for whom."
-    approach: "The key technical decision you made and why — the tradeoff, not just the tech list."
-    outcome: "A measurable result: performance, usage, scope, or what you learned."
-    stack: ["Python", "APIs"]
+  - title: "GodotMark"
+    problem: "ARM single-board computers (Raspberry Pi, Orange Pi, Rock 5B) had no standardized way to benchmark real 3D gaming performance — existing tools were x86-only or too synthetic to reflect actual game workloads on low-power GPUs."
+    approach: "Built two purpose-built benchmarks in Godot 4 with a C++ GDExtension — a GPU stress test with PBR materials and particles, and a draw-call-efficiency test with a procedural outdoor scene — tuned around ARM GPU constraints (V3D driver stack, Vulkan/GLES3) instead of assuming desktop-class hardware."
+    outcome: "Cut the outdoor scene to 4 draw calls via GPU instancing across ~5,600 triangles and 125 objects, sustaining 40+ FPS on a Raspberry Pi 5 with wind, ocean shaders, and physics enabled. Open-sourced with labeled \"good first issues\" to grow outside contributors."
+    stack: ["C++", "Godot Engine", "GDExtension", "Vulkan / OpenGL ES", "ARM64"]
     demo_url: ""
-    repo_url: ""
+    repo_url: "https://github.com/Joshkaki00/godotmark"
   - title: "Project Three"
     problem: "What problem this project solved, and for whom."
     approach: "The key technical decision you made and why — the tradeoff, not just the tech list."
